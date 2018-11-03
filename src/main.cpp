@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <math.h>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow *window);
@@ -31,9 +32,10 @@ const char *vertexShaderSource = "#version 330 core\n"
     "}\0";
 const char *fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
+    "uniform vec4 outColor;\n"
     "void main()\n"
     "{\n"
-    "   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n"
+    "   FragColor = outColor;\n"
     "}\n\0";
 
 int main()
@@ -140,9 +142,17 @@ int main()
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        float timeValue = glfwGetTime();
+        float greenValue = (sin(timeValue)/2.0f) + 0.5f;
+        int vertexColorLocation = glGetUniformLocation(shaderProgram, "outColor");
+
+
         glUseProgram(shaderProgram);
+        glUniform4f(vertexColorLocation,1.0f - greenValue,greenValue, 0.0f, 1.0f);
         glBindVertexArray(VAO);
         //glDrawArrays(GL_TRIANGLES, 0, 3);
+        //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
 
