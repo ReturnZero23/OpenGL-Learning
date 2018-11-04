@@ -1,5 +1,6 @@
 include_directories(${PROJECT_SOURCE_DIR}/deps/glad/include)
 include_directories(${PROJECT_SOURCE_DIR}/deps/glfw/include)
+include_directories(${PROJECT_SOURCE_DIR}/deps/stb)
 
 set(SRC_LIST main.cpp shader.cpp)
 
