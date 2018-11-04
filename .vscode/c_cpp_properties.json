@@ -4,7 +4,8 @@
             "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/deps/glad/include/",
-                "${workspaceFolder}/deps/glfw/include/"
+                "${workspaceFolder}/deps/glfw/include/",
+                "${workspaceFolder}/deps/stb/"
             ],
             "defines": [],
             "macFrameworkPath": [
