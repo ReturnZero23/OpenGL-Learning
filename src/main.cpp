@@ -62,8 +62,8 @@ int main()
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER,sizeof(vertices),vertices,GL_STATIC_DRAW);
 
-    Shader shader("/Users/returnzer0/Development/OpenGL-Learning/shaders/vertexshader.vs",
-                "/Users/returnzer0/Development/OpenGL-Learning/shaders/fragmentshader.fs");
+    Shader shader("./shaders/vertexshader.vs",
+                "./shaders/fragmentshader.fs");
 
     unsigned int VAO;
     glGenVertexArrays(1, &VAO);
